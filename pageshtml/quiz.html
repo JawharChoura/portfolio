@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz HTML, CSS et JavaScript</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Container for the quiz */
+    .quiz-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+      overflow-y: auto;
+      max-height: 90vh;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    /* Header styles */
+    .quiz-header {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      font-size: 2.5em;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    /* Question styles */
+    .quiz-question {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      font-size: 1.2em;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Question option styles */
+    .quiz-options label {
+      display: block;
+      background-color: #ffffff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .quiz-options label:hover {
+      background-color: #e6f2ff;
+      transform: translateY(-2px);
+    }
+
+    .quiz-options input {
+      margin-right: 10px;
+    }
+
+    /* Submit button styles */
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      width: 80%; /* The width will adjust to the content */
+  margin: 30px auto; /* This centers the button horizontally */
+  display: block; /* Makes the button a block-level element */
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    /* Result styles */
+    .result {
+      margin-top: 20px;
+      font-size: 1.3em;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: #28a745;
+    }
+
+    .incorrect {
+      color: #dc3545;
+    }
+
+    .correct-answer {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .quiz-container {
+        width: 90%;
+        padding: 20px;
+      }
+
+      .quiz-header {
+        font-size: 2em;
+        padding: 20px;
+      }
+
+      button {
+        padding: 12px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div >
+    <div class="quiz-header">
+      <h2>Quiz : HTML, CSS et JavaScript</h2>
+    </div>
+    <form id="quiz-form">
+      <!-- Question 1 -->
+      <div class="quiz-question">
+        <strong>1. Quelle balise HTML est utilisée pour insérer une image ?</strong>
+        <div class="quiz-options">
+          <label><input type="radio" name="q1" value="img"> &lt;img&gt;</label>
+          <label><input type="radio" name="q1" value="image"> &lt;image&gt;</label>
+          <label><input type="radio" name="q1" value="picture"> &lt;picture&gt;</label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-question">
+        <strong>2. Quelle propriété CSS est utilisée pour rendre un texte en gras ?</strong>
+        <div class="quiz-options">
+          <label><input type="radio" name="q2" value="font-weight"> font-weight</label>
+          <label><input type="radio" name="q2" value="text-bold"> text-bold</label>
+          <label><input type="radio" name="q2" value="bold"> bold</label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-question">
+        <strong>3. Quelle méthode JavaScript est utilisée pour ajouter un élément HTML au DOM ?</strong>
+        <div class="quiz-options">
+          <label><input type="radio" name="q3" value="appendChild"> appendChild()</label>
+          <label><input type="radio" name="q3" value="addElement"> addElement()</label>
+          <label><input type="radio" name="q3" value="createNode"> createNode()</label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-question">
+        <strong>4. Quel événement JavaScript est déclenché lorsqu'un utilisateur clique sur un élément ?</strong>
+        <div class="quiz-options">
+          <label><input type="radio" name="q4" value="onmouseover"> onmouseover</label>
+          <label><input type="radio" name="q4" value="onclick"> onclick</label>
+          <label><input type="radio" name="q4" value="onchange"> onchange</label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-question">
+        <strong>5. Quelle est la bonne syntaxe pour déclarer une variable en JavaScript ?</strong>
+        <div class="quiz-options">
+          <label><input type="radio" name="q5" value="var a = 5;"> var a = 5;</label>
+          <label><input type="radio" name="q5" value="variable a = 5;"> variable a = 5;</label>
+          <label><input type="radio" name="q5" value="int a = 5;"> int a = 5;</label>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="quiz-question">
+        <strong>6. Quelle propriété CSS est utilisée pour définir la marge interne d'un élément ?</strong>
+        <div class="quiz-options">
+          <label><input type="radio" name="q6" value="margin"> margin</label>
+          <label><input type="radio" name="q6" value="padding"> padding</label>
+          <label><input type="radio" name="q6" value="spacing"> spacing</label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="quiz-question">
+        <strong>7. Quelle est la portée d'une variable déclarée avec <code>let</code> en JavaScript ?</strong>
+        <div class="quiz-options">
+          <label><input type="radio" name="q7" value="globale"> Globale</label>
+          <label><input type="radio" name="q7" value="locale"> Locale</label>
+          <label><input type="radio" name="q7" value="fonction"> Fonction uniquement</label>
+        </div>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Soumettre</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script src="../quiz.js"></script>
+
+
+</body>
+</html>

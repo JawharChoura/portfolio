@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Parcours Académique</title>
+  <style>
+    /* Style général */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    main {
+      padding: 20px;
+      flex: 1;
+    }
+
+    .diploma {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .diploma img {
+      max-width: 150px;
+      max-height: 150px;
+      margin-right: 20px;
+      border-radius: 8px;
+      border: 2px solid #007BFF;
+    }
+
+    .diploma-content {
+      flex: 1;
+    }
+
+    .diploma-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    .diploma-content p {
+      margin: 0;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #007BFF;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .diploma {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .diploma img {
+        margin: 0 auto 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mon Parcours Académique</h1>
+</header>
+
+<main>
+
+  <div class="diploma">
+    <img src="../images/IMGBN98300bac.jpg" alt="Baccalauréat en Science Technique">
+    <div class="diploma-content">
+      <h3>Baccalauréat en Science Technique</h3>
+      <p>Lycée Abou Kacem Echebbi - Obtenu en 2021</p>
+      <p>Spécialisation en sciences techniques avec une excellente performance dans les matières scientifiques.</p>
+    </div>
+  </div>
+
+  <div class="diploma">
+    <img src="../images/diplome.jpg" alt="Diplôme de Licence">
+    <div class="diploma-content">
+      <h3>Licence en Informatique</h3>
+      <p>Université IIT - Obtenue en 2024</p>
+      <p>Cette formation m'a permis d'acquérir une solide base en programmation et en développement web.</p>
+    </div>
+  </div>
+
+  
+
+  <!-- Troisième diplôme -->
+  <div class="diploma">
+    <img src="../images/scrum.jpg" alt="Certification Scrum Master">
+    <div class="diploma-content">
+      <h3>Certification Scrum Master</h3>
+      <p>Institut DEF - Obtenue en 2023</p>
+      <p>Cette certification atteste de ma maîtrise des méthodologies agiles et de ma capacité à coordonner des équipes en adoptant les meilleures pratiques Scrum. Elle renforce mes compétences en planification de sprints, gestion de backlog, et amélioration continue.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2024 Mon Parcours Académique</p>
+</footer>
+
+</body>
+</html>
