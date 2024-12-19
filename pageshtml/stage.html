@@ -5,14 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mes Stages et Expériences Professionnelles</title>
   <link rel="stylesheet" href="../style.css" />
-  
+  <style>
+    /* Style général */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .container {
+      padding: 20px;
+      flex: 1;
+    }
+
+    .stage, .experience {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+
+    .stage h2, .experience h2 {
+      color: #007BFF;
+      margin: 0 0 10px;
+    }
+
+    .details strong {
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #007BFF;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Mes Stages et Expériences Professionnelles</h1>
   </header>
   <div class="container">
-    <!-- Exemple de stage -->
+
     <div class="stage">
       <h2>Stage en Développement Web</h2>
       <p class="details"><strong>Lieu :</strong> Entreprise Finlogick, Sfax<br>
@@ -20,14 +74,17 @@
       <strong>Objectif :</strong> Développer un site web responsive pour la gestion des tâches.</p>
       <p>Lors de ce stage, j'ai conçu et codé un site web utilisant HTML, CSS et JavaScript, avec des fonctionnalités permettant de suivre l'état des projets en temps réel.</p>
     </div>
-    <!-- Exemple d'expérience professionnelle -->
+
     <div class="experience">
       <h2>Développeur Full Stack</h2>
       <p class="details"><strong>Lieu :</strong> Entreprise Finlogick, Sfax<br>
-      <strong>Durée :</strong> 4 mois (Avril 2023 - Avril 2024)<br>
-      <strong>Objectif :</strong> Améliorer la plateforme e-commerce de l'entreprise.</p>
-      <p>J'ai travaillé sur le backend avec Node.js et le frontend avec React.js, en optimisant les performances et en ajoutant de nouvelles fonctionnalités comme le suivi des commandes et le paiement en ligne sécurisé.</p>
-    </div>
+        <strong>Durée :</strong> 4 mois (Avril 2023 - Avril 2024)<br>
+        <strong>Objectif :</strong> Développer une solution de génération de fichiers Excel pour l'entreprise.</p>
+        <p>J'ai travaillé sur le backend avec Spring Boot et le frontend avec Angular, en mettant en place une architecture robuste pour créer et exporter des fichiers Excel dynamiques, avec des données provenant de diverses sources de l'entreprise. Le projet comprenait également l'optimisation des performances et l'ajout d'une interface utilisateur intuitive pour personnaliser les exports.</p>
+    </div>        
   </div>
+  <footer>
+    <p>&copy; 2024 Mes Stages et Expériences Professionnelles | Tous droits réservés.</p>
+  </footer>
 </body>
 </html>

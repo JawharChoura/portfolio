@@ -11,28 +11,38 @@ function submitQuiz() {
 
   const form = document.getElementById('quiz-form');
   const resultDiv = document.getElementById('result');
-  const questions = form.querySelectorAll('.quiz-question');
+  const questions = form.getElementsByClassName('quiz-question');
   let correctAnswers = 0;
-  const totalQuestions = questions.length;
 
-  resultDiv.innerHTML = "";
+  resultDiv.innerHTML = ""; // Réinitialisation des résultats
 
-  questions.forEach((question, index) => {
-    const selectedOption = question.querySelector('input[type="radio"]:checked');
-    const questionId = `q${index + 1}`;
+  for (let i = 0; i < questions.length; i++) {
+    const question = questions[i];
+    const inputs = question.getElementsByTagName('input');
+    const questionId = `q${i + 1}`;
     const correctAnswer = answers[questionId];
+    let selectedOption = null;
 
+    // Trouver l'option sélectionnée
+    for (let input of inputs) {
+      if (input.type === "radio" && input.checked) {
+        selectedOption = input.value;
+        break;
+      }
+    }
+
+    // Déterminer et afficher le résultat pour la question
     if (selectedOption) {
-      if (selectedOption.value === correctAnswer) {
+      if (selectedOption === correctAnswer) {
         correctAnswers++;
-        resultDiv.innerHTML += `<p class="correct">Question ${index + 1}: Correct</p>`;
+        resultDiv.innerHTML += `<p class="correct">Question ${i + 1}: Correct</p>`;
       } else {
-        resultDiv.innerHTML += `<p class="incorrect">Question ${index + 1}: Incorrect - <span class="correct-answer">La bonne réponse est "${correctAnswer}"</span></p>`;
+        resultDiv.innerHTML += `<p class="incorrect">Question ${i + 1}: Incorrect - <span class="correct-answer">La bonne réponse est "${correctAnswer}"</span></p>`;
       }
     } else {
-      resultDiv.innerHTML += `<p class="incorrect">Question ${index + 1}: Pas de réponse sélectionnée - <span class="correct-answer">La bonne réponse est "${correctAnswer}"</span></p>`;
+      resultDiv.innerHTML += `<p class="incorrect">Question ${i + 1}: Pas de réponse sélectionnée - <span class="correct-answer">La bonne réponse est "${correctAnswer}"</span></p>`;
     }
-  });
+  }
 
-  resultDiv.innerHTML += `<p><strong>Score : ${correctAnswers} sur ${totalQuestions}</strong></p>`;
+  resultDiv.innerHTML += `<p><strong>Score : ${correctAnswers} sur ${questions.length}</strong></p>`;
 }

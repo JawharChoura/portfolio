@@ -1,51 +1,31 @@
 // Sticky Navigation Menu
-let nav = document.querySelector("nav");
-let scrollBtn = document.querySelector(".scroll-button a");
+window.onscroll = () => {
+  const nav = document.querySelector("nav");
+  const scrollBtn = document.querySelector(".scroll-button a");
+  const scrolled = document.documentElement.scrollTop > 20;
 
-// Show/hide sticky navigation and scroll button based on scroll position
-window.onscroll = function () {
-  if (document.documentElement.scrollTop > 20) {
-    nav.classList.add("sticky");
-    scrollBtn.style.display = "block";
-  } else {
-    nav.classList.remove("sticky");
-    scrollBtn.style.display = "none";
-  }
+  nav.classList.toggle("sticky", scrolled);
+  scrollBtn.style.display = scrolled ? "block" : "none";
 };
 
 // Side Navigation Menu
-let body = document.querySelector("body");
-let navBar = document.querySelector(".navbar");
-let menuBtn = document.querySelector(".menu-btn");
-let cancelBtn = document.querySelector(".cancel-btn");
+const body = document.querySelector("body");
+const navBar = document.querySelector(".navbar");
+const menuBtn = document.querySelector(".menu-btn");
+const cancelBtn = document.querySelector(".cancel-btn");
+const navLinks = document.querySelectorAll(".menu li a");
+
+// Toggle side navigation
+const toggleNavMenu = (isOpen) => {
+  navBar.classList.toggle("active", isOpen);
+  menuBtn.style.opacity = isOpen ? "0" : "1";
+  menuBtn.style.pointerEvents = isOpen ? "none" : "auto";
+  body.style.overflow = isOpen ? "hidden" : "auto";
+};
 
 // Open side navigation
-menuBtn.onclick = function () {
-  navBar.classList.add("active");
-  menuBtn.style.opacity = "0";
-  menuBtn.style.pointerEvents = "none";
-  body.style.overflow = "hidden";
-  scrollBtn.style.pointerEvents = "none";
-};
-
-const hideNavMenu = () => {
-  navBar.classList.remove("active");
-  menuBtn.style.opacity = "1";
-  menuBtn.style.pointerEvents = "auto";
-  body.style.overflow = "auto";
-  scrollBtn.style.pointerEvents = "auto";
-};
+menuBtn.onclick = () => toggleNavMenu(true);
 
 // Close side navigation
-cancelBtn.onclick = hideNavMenu;
-
-// Close side navigation when a menu link is clicked
-let navLinks = document.querySelectorAll(".menu li a");
-navLinks.forEach((link) => {
-  link.addEventListener("click", hideNavMenu);
-});
-
-
-
-
-
+cancelBtn.onclick = () => toggleNavMenu(false);
+navLinks.forEach((link) => link.addEventListener("click", () => toggleNavMenu(false)));
